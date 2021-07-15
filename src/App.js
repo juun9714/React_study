@@ -1,11 +1,8 @@
-// import logo from './logo.svg';
 import './App.css';
-//App 컴포넌트에 App.css의 디자인을 적용
 import React, { Component } from 'react';
 import TOC from "./components/TOC"
 import Content from "./components/Content"
 import Subject from "./components/Subject"
-
 
 
 class App extends Component {

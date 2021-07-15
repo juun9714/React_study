@@ -1,4 +1,3 @@
-import { defaultMaxListeners } from 'events';
 import React, { Component } from 'react';
 
 class Subject extends Component {
