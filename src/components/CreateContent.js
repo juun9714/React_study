@@ -9,10 +9,9 @@ class CreateContent extends Component {
         <form action="/create_process" method="post"
           onSubmit={function(e){
             e.preventDefault()
-            alert("submit")
-            // 보통 form태그에서 submit 버튼이 눌리면, form의 action에서 지정한 페이지로 넘어가는게 default
-            // 하지만 우리는 페이지 전환없이 웹을 만드려고 하는 것이기 때문에 preventDefault해줌 
-            // action에서 지정한 페이지로 form에 입력한 내용 전송
+            
+            this.props.onSubmit(e.target.title.value, e.target.desc.value)
+            // target인 form에 각 input 태그의 "name"으로 들어가 있음
           }.bind(this)}
         >
           {/* onSubmit => html의 기능 */}
