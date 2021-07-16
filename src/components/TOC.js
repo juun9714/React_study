@@ -11,12 +11,12 @@ class TOC extends Component {
           <a
             href={"/content/" + data[i].id}
             data-id={data[i].id}
-            onClick={function (e) {
+            onClick={function (id, e) {
               // debugger
               // e.target.dataset.id
               e.preventDefault()
-              this.props.onChangePage(e.target.dataset.id)
-            }.bind(this)}
+              this.props.onChangePage(id)
+            }.bind(this, data[i].id)}
           >{data[i].title}</a>
         </li>
       )
