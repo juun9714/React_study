@@ -1,8 +1,9 @@
 import './App.css';
 import React, { Component } from 'react';
 import TOC from "./components/TOC"
-import Content from "./components/Content"
+import ReadContent from "./components/ReadContent"
 import Subject from "./components/Subject"
+import Control from "./components/Control"
 
 
 class App extends Component {
@@ -10,7 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       mode: 'read',
-      selected_content_id:2,
+      selected_content_id: 2,
       subject: { title: 'WEB', sub: "world wid web" },
       welcome: { title: "Welcome", desc: "Hello React !!!!" },
       contents: [
@@ -28,17 +29,17 @@ class App extends Component {
       _title = this.state.welcome.title
       _desc = this.state.welcome.desc
     } else if (this.state.mode === "read") {
-      var i=0
-      while(i<this.state.contents.length){
-        var data=this.state.contents[i]
-        if(data.id===this.state.selected_content_id){
+      var i = 0
+      while (i < this.state.contents.length) {
+        var data = this.state.contents[i]
+        if (data.id === this.state.selected_content_id) {
           _title = data.title
           _desc = data.desc
           break
         }
-        i=i+1
+        i = i + 1
       }
-    }
+    }else if(this.state.mode==="create"){}
     return (
       <div className="App">
         <Subject
@@ -54,12 +55,17 @@ class App extends Component {
           onChangePage={function (id) {
             this.setState({
               mode: "read",
-              selected_content_id:Number(id)
+              selected_content_id: Number(id)
             })
           }.bind(this)}
           data={this.state.contents}
         ></TOC>
-        <Content title={_title} desc={_desc}></Content>
+        <Control onChangeMode={function(_mode){
+          this.setState({
+            mode:_mode
+          })
+        }.bind(this)}></Control>
+        <ReadContent title={_title} desc={_desc}></ReadContent>
       </div>
     );
   }
