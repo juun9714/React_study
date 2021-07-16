@@ -6,11 +6,18 @@ import Subject from "./components/Subject"
 
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      subject:{title:'WEB', sub:"world wid web"},
-      content:{title:'HTML', desc:"HTML is HyperText Markup Language"}
+    this.state = {
+      subject: { title: 'WEB', sub: "world wid web" },
+      contents:[
+        {id:1, title:"HTML",desc:"HTML is HyperText Markup Language"},
+        {id:2, title:"CSS",desc:"CSS is for design"},
+        {id:3, title:"JavaScript",desc:"JavaScript is for interactive"}
+      ],
+      content:{
+        title:"HTML", desc:"HTML is ooooo"
+      }
     }
   }
 
@@ -20,7 +27,7 @@ class App extends Component {
     return (
       <div className="App">
         <Subject title={this.state.subject.title} sub={this.state.subject.sub}></Subject>
-        <TOC></TOC>
+        <TOC data={this.state.contents}></TOC>
         <Content title={this.state.content.title} desc={this.state.content.desc}></Content>
       </div>
     );
