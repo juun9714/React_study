@@ -11,12 +11,11 @@ class TOC extends Component {
           <a
             href={"/content/" + data[i].id}
             data-id={data[i].id}
-            onClick={function (id, e) {
-              // debugger
-              // e.target.dataset.id
+            // 위 코드 : data[i].id를 e의 dataset의 id 멤버로 전달하는 것
+            onClick={function (e) {
               e.preventDefault()
-              this.props.onChangePage(id)
-            }.bind(this, data[i].id)}
+              this.props.onChangePage(e.target.dataset.id)
+            }.bind(this)}
           >{data[i].title}</a>
         </li>
       )
