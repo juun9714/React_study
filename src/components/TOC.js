@@ -11,7 +11,7 @@ class TOC extends Component {
           <a
             href={"/content/" + data[i].id}
             data-id={data[i].id}
-            // 위 코드 : data[i].id를 e의 dataset의 id 멤버로 전달하는 것
+            // 위 코드 : data[i].id를 e의 target의 dataset의 id 멤버로 전달하는 것
             onClick={function (e) {
               e.preventDefault()
               this.props.onChangePage(e.target.dataset.id)

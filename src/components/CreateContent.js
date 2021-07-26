@@ -9,7 +9,7 @@ class CreateContent extends Component {
         <form action="/create_process" method="post"
           onSubmit={function(e){
             e.preventDefault()
-            
+            // e를 들여다보면 나옴
             this.props.onSubmit(e.target.title.value, e.target.desc.value)
             // target인 form에 각 input 태그의 "name"으로 들어가 있음
           }.bind(this)}
