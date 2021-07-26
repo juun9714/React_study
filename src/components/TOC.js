@@ -3,8 +3,10 @@ import React, { Component } from "react";
 class TOC extends Component {
   shouldComponentUpdate(newProps, newState) {
     if (newProps.data === this.props.data) {
+      // no need to call render 
       return false;
     } else {
+      // need to call render
       return true;
     }
   }
